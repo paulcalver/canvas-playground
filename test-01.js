@@ -1,8 +1,6 @@
-const canvasSketch = require('canvas-sketch');
+import canvasSketch from 'canvas-sketch';
 
-const settings = {
-  dimensions: [1080, 1080]
-};
+export const settings = { dimensions: [1080, 1080] };
 
 const sketch = () => {
   return ({ context, width, height }) => {
@@ -16,4 +14,4 @@ const sketch = () => {
   };
 };
 
-canvasSketch(sketch, settings);
+export default sketch;
