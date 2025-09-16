@@ -1,11 +1,25 @@
 <!doctype html>
 <html lang="en">
-  <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<title>canvas-playground</title>
-  </head>
-  <body>
-	<script type="module" src="/main.js"></script>
-  </body>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Circle demo</title>
+  <canvas id="c" width="1080" height="1080"></canvas>
+  <script type="module">
+	const c = document.getElementById('c');
+	const ctx = c.getContext('2d');
+
+	function draw(t=0) {
+	  ctx.fillStyle = 'white';
+	  ctx.fillRect(0, 0, c.width, c.height);
+
+	  const r = 200 + 20*Math.sin(t/500);
+	  ctx.fillStyle = 'black';
+	  ctx.beginPath();
+	  ctx.arc(c.width/2, c.height/2, r, 0, Math.PI*2);
+	  ctx.fill();
+
+	  requestAnimationFrame(draw);
+	}
+	requestAnimationFrame(draw);
+  </script>
 </html>
